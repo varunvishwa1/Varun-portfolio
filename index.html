@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Metadata -->
+  <title>Varun Vishwa | AI Product Engineer</title>
+  <meta name="description" content="Varun Vishwa is a technology-focused builder exploring AI, product engineering, emerging technologies and building useful products.">
+  <meta name="keywords" content="Varun Vishwa, AI Product Engineer, Product Builder, LLM Engineering, Software Engineering, Creative Technologist, Generative AI">
+  <meta name="author" content="Varun Vishwa">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Varun Vishwa | AI Product Engineer">
+  <meta property="og:description" content="Technology-focused builder who loves turning ideas into real products. Curious. Creative. Ambitious.">
+  <meta property="og:site_name" content="Varun Vishwa Portfolio">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23060504%22/><text y=%22.9em%22 x=%22.15em%22 font-size=%2280%22 font-weight=%22bold%22 fill=%22%23E07020%22>V</text></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient FX Layers -->
+  <div class="ambient-grid-bg"></div>
+  <div class="scanlines-overlay"></div>
+  <div class="ambient-vignette"></div>
+
+  <!-- FLOATING HUD NAVIGATION -->
+  <header class="hud-nav-wrapper">
+    <nav class="hud-nav" aria-label="Main Navigation">
+      <a href="#hero" class="brand-anchor">
+        <span class="brand-dot"></span>
+        <span>VARUN VISHWA</span>
+      </a>
+
+      <ul class="nav-links-desktop">
+        <li><a href="#about" class="nav-item-link"><span class="nav-num">01</span> ABOUT</a></li>
+        <li><a href="#work" class="nav-item-link"><span class="nav-num">02</span> WORK</a></li>
+        <li><a href="#skills" class="nav-item-link"><span class="nav-num">03</span> STACK</a></li>
+        <li><a href="#archive" class="nav-item-link"><span class="nav-num">04</span> ARCHIVE</a></li>
+        <li><a href="#beyond" class="nav-item-link"><span class="nav-num">05</span> BEYOND</a></li>
+        <li><a href="#contact" class="nav-item-link"><span class="nav-num">06</span> CONTACT</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button id="audio-toggle-btn" class="audio-toggle-btn" title="Toggle Audio HUD" aria-label="Toggle Audio HUD">🔈</button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <button id="mobile-drawer-close" class="modal-close-btn" style="position: absolute; top: 1.5rem; right: 1.5rem;" aria-label="Close Menu">✕</button>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link"><span>00</span> HOME</a></li>
+      <li><a href="#about" class="mobile-nav-link"><span>01</span> ABOUT & PHILOSOPHY</a></li>
+      <li><a href="#work" class="mobile-nav-link"><span>02</span> WORK & CASE STUDIES</a></li>
+      <li><a href="#skills" class="mobile-nav-link"><span>03</span> STACK & EXPLORING</a></li>
+      <li><a href="#archive" class="mobile-nav-link"><span>04</span> COMMAND ARCHIVE</a></li>
+      <li><a href="#beyond" class="mobile-nav-link"><span>05</span> BEYOND THE CODE</a></li>
+      <li><a href="#contact" class="mobile-nav-link"><span>06</span> TRANSMIT & CONNECT</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         00. HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        
+        <!-- Status & Section Header Bar -->
+        <div class="hero-status-bar">
+          <span class="hero-top-tag">BUILDER COMMAND CENTER</span>
+          <div class="hero-live-status-group">
+            <span class="hud-live-pill"><span class="live-indicator"></span> SYS::ONLINE</span>
+            <span id="hud-counter-text" class="hud-counter">01 / 06</span>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          
+          <!-- Portrait Spotlight Column (Mobile-First Top Centerpiece) -->
+          <div class="hero-portrait-column">
+            <div class="cyber-portrait-frame" id="hero-spotlight-frame">
+              <span class="bracket top-left"></span>
+              <span class="bracket top-right"></span>
+              <span class="bracket bottom-left"></span>
+              <span class="bracket bottom-right"></span>
+
+              <!-- Portrait Base Layer -->
+              <div class="portrait-layer portrait-base">
+                <img src="./assets/varun-portrait.png" alt="Varun Vishwa" class="portrait-img" loading="eager">
+                <div class="portrait-scanline-fx"></div>
+              </div>
+
+              <!-- Portrait Cyber Reveal Layer -->
+              <div class="portrait-layer portrait-reveal" id="portrait-reveal-layer">
+                <img src="./assets/varun-portrait.png" alt="Varun Vishwa Cyber Schematic" class="portrait-img schematic-filter">
+                <div class="schematic-hud-overlay">
+                  <div class="hud-circle-reticle"></div>
+                  <div class="hud-schematic-line"></div>
+                  <span class="hud-label-schematic">SYS_REVEAL // NEURAL_ACTIVE</span>
+                </div>
+              </div>
+
+              <div class="spotlight-cursor-ring" id="spotlight-cursor-ring"></div>
+
+              <div class="portrait-badge-top">
+                <span class="badge-dot"></span>
+                <span>ID: VARUN_VISHWA</span>
+              </div>
+              <div class="portrait-badge-bottom">
+                <span>BUILD-01 // AI PRODUCT ENGINEER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Main Copy & Direct Social Links -->
+          <div class="hero-main-copy">
+            <div class="hero-meta-badge">
+              <span>⚡</span>
+              <span>AI • PRODUCT ENGINEERING • EMERGING TECH</span>
+            </div>
+
+            <div class="hero-title-group">
+              <div class="hero-name">VARUN VISHWA</div>
+              <h1 class="hero-headline">
+                AI PRODUCT<br><span class="highlight">ENGINEER</span>
+              </h1>
+            </div>
+
+            <!-- TOP SOCIAL PILLS (Direct Real Links) -->
+            <div class="hero-top-social-pills">
+              <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="social-hud-pill">
+                <span class="pill-icon">in</span>
+                <span>LINKEDIN</span>
+              </a>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="social-hud-pill">
+                <span class="pill-icon">gh</span>
+                <span>GITHUB</span>
+              </a>
+              <a href="#contact" class="social-hud-pill">
+                <span class="pill-icon">@</span>
+                <span>EMAIL</span>
+              </a>
+            </div>
+
+            <p class="hero-desc">
+              Technology-focused builder who loves turning ideas into real products. Exploring AI, product engineering, and emerging technologies to transform ideas into useful experiences.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#work" class="cyber-btn-primary">
+                <span>EXPLORE WORK</span>
+                <span>➔</span>
+              </a>
+              <a href="#contact" class="cyber-btn-secondary">
+                <span>LET'S CONNECT</span>
+                <span>⚡</span>
+              </a>
+            </div>
+
+            <div class="hero-telemetry-inline">
+              <div class="telem-item"><span class="telem-lbl">FOCUS</span> <span class="telem-val">AI + Product</span></div>
+              <div class="telem-sep">/</div>
+              <div class="telem-item"><span class="telem-lbl">BUILD</span> <span class="telem-val">Intelligent SaaS</span></div>
+              <div class="telem-sep">/</div>
+              <div class="telem-item"><span class="telem-lbl">STATUS</span> <span class="telem-val" style="color: #34d399;">Active</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         01. ABOUT & BUILDER PHILOSOPHY
+         ========================================================================== -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">01 // IDENTITY & PHILOSOPHY</div>
+          <h2 class="section-title">WHO IS VARUN?</h2>
+        </div>
+
+        <div class="about-consolidated-grid">
+          <div class="about-bio-card">
+            <div class="personality-monumental">
+              <span>CURIOUS.</span>
+              <span>CREATIVE.</span>
+              <span>AMBITIOUS.</span>
+            </div>
+
+            <p class="about-lead-text">
+              Varun Vishwa is a Computer Science Engineering student and technology-focused builder interested in AI, product engineering, emerging technologies and turning ideas into real products.
+            </p>
+            <p class="about-sub-text">
+              He combines engineering, product thinking, and creativity to experiment with ideas rather than staying inside a single domain.
+            </p>
+
+            <div class="about-meta-chips">
+              <div class="meta-chip"><span class="chip-lbl">BASED IN</span> <span class="chip-val">India</span></div>
+              <div class="meta-chip"><span class="chip-lbl">FOCUS</span> <span class="chip-val">AI + Product</span></div>
+              <div class="meta-chip"><span class="chip-lbl">MINDSET</span> <span class="chip-val">Build • Learn • Explore</span></div>
+            </div>
+          </div>
+
+          <div class="philosophy-stages-column">
+            <div class="stage-mini-card">
+              <div class="stage-num">01</div>
+              <div class="stage-info">
+                <h3 class="stage-title">EXPLORE</h3>
+                <p class="stage-desc">Understanding problems, technologies and possibilities from first principles.</p>
+              </div>
+            </div>
+
+            <div class="stage-mini-card active-stage">
+              <div class="stage-num">02</div>
+              <div class="stage-info">
+                <h3 class="stage-title">BUILD</h3>
+                <p class="stage-desc">Turning concepts into working prototypes, robust software and scalable systems.</p>
+              </div>
+            </div>
+
+            <div class="stage-mini-card">
+              <div class="stage-num">03</div>
+              <div class="stage-info">
+                <h3 class="stage-title">EVOLVE</h3>
+                <p class="stage-desc">Improving products through experimentation, real feedback loops and learning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         02. WORK & CASE STUDIES
+         ========================================================================== -->
+    <section id="work" class="section-padding">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <div class="section-tag">02 // WORK</div>
+            <h2 class="section-title">THINGS I'VE BUILT</h2>
+            <p class="section-subtitle">Case studies of working products, experiments and systems.</p>
+          </div>
+
+          <div class="projects-filter-bar">
+            <button class="filter-btn active" data-filter="ALL">ALL</button>
+            <button class="filter-btn" data-filter="AI">AI / ML</button>
+            <button class="filter-btn" data-filter="PRODUCT">PRODUCT</button>
+            <button class="filter-btn" data-filter="AR/3D">AR / 3D</button>
+          </div>
+        </div>
+
+        <div id="projects-grid" class="projects-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         03. TECH STACK & CURRENTLY EXPLORING
+         ========================================================================== -->
+    <section id="skills" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">03 // TECH STACK & FRONTIERS</div>
+          <h2 class="section-title">TOOLS & EXPLORATION</h2>
+          <p class="section-subtitle">Categorized skills and active research domains.</p>
+        </div>
+
+        <div class="stack-combined-grid">
+          <div id="skills-matrix" class="skills-categories-matrix">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="now-frontiers-panel">
+            <div class="frontiers-header">
+              <span class="frontiers-title">CURRENTLY EXPLORING</span>
+              <span class="cyber-tag">ACTIVE FOCUS</span>
+            </div>
+            <div id="now-grid" class="frontiers-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         04. COMMAND ARCHIVE (TABBED)
+         ========================================================================== -->
+    <section id="archive" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">04 // COMMAND ARCHIVE</div>
+          <h2 class="section-title">JOURNEY & CREDENTIALS</h2>
+          <p class="section-subtitle">Interactive archive of leadership, academic foundation, and verified tracks.</p>
+        </div>
+
+        <div class="archive-tabs-nav">
+          <button class="archive-tab-btn active" data-tab="journey">
+            <span>01</span> LEADERSHIP & JOURNEY
+          </button>
+          <button class="archive-tab-btn" data-tab="education">
+            <span>02</span> EDUCATION FOUNDATION
+          </button>
+          <button class="archive-tab-btn" data-tab="achievements">
+            <span>03</span> HACKATHONS & TRACKS
+          </button>
+        </div>
+
+        <div class="archive-panes-wrapper">
+          <div id="pane-journey" class="archive-pane active">
+            <div id="journey-timeline-flow" class="timeline-vertical-flow">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div id="pane-education" class="archive-pane">
+            <div id="education-card" class="education-hero-card">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div id="pane-achievements" class="archive-pane">
+            <div id="achievements-grid" class="achievements-archive-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         05. BEYOND THE CODE & BANNER
+         ========================================================================== -->
+    <section id="beyond" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">05 // BEYOND THE CODE</div>
+          <h2 class="section-title">CURIOSITY DRIVES ME.</h2>
+          <p class="section-subtitle">Multidisciplinary perspectives shaping creativity and mindset.</p>
+        </div>
+
+        <div id="beyond-grid" class="beyond-cards-grid">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="philosophy-banner-box">
+          <blockquote class="philosophy-banner-quote">
+            "EXPLORE DIFFERENT FIELDS. <span class="highlight-line">TURN IDEAS INTO SOMETHING REAL.</span> KEEP BUILDING."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         06. CONTACT & TRANSMISSION TERMINAL
+         ========================================================================== -->
+    <section id="contact" class="section-padding contact-section-compact">
+      <div class="container">
+        <div class="contact-box-grid">
+          <div class="contact-left-info">
+            <div class="section-tag">06 // TRANSMISSION</div>
+            <h2 class="contact-headline">LET'S BUILD SOMETHING REAL.</h2>
+            <p class="contact-subtext">
+              Have an idea, product, experiment, or problem worth exploring? My terminal is always open for collaboration.
+            </p>
+
+            <div class="contact-identity-badge">
+              <div class="identity-name">VARUN VISHWA</div>
+              <div class="identity-title">AI PRODUCT ENGINEER • PRODUCT BUILDER</div>
+            </div>
+          </div>
+
+          <!-- Interactive Terminal -->
+          <div class="contact-terminal-box">
+            <div class="terminal-header-bar">
+              <div class="terminal-dots">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+              </div>
+              <span class="terminal-title">TERMINAL // READY</span>
+            </div>
+
+            <!-- Only LinkedIn, GitHub, Email -->
+            <div id="terminal-links-list" class="terminal-links-list">
+              <a href="https://www.linkedin.com/in/varunvishwa/" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>// LINKEDIN</span>
+                <span>➔</span>
+              </a>
+              <a href="https://github.com/varunvishwa1" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>// GITHUB</span>
+                <span>➔</span>
+              </a>
+              <a href="mailto:contact@varunvishwa.dev" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>// EMAIL</span>
+                <span>➔</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div>
+          <div class="footer-brand-title">VARUN VISHWA</div>
+          <div class="footer-brand-sub">AI PRODUCT ENGINEER • PRODUCT BUILDER • CREATIVE TECHNOLOGIST</div>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="#hero" class="footer-link">HOME</a>
+          <a href="#work" class="footer-link">WORK</a>
+          <a href="#skills" class="footer-link">STACK</a>
+          <a href="#archive" class="footer-link">ARCHIVE</a>
+          <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="footer-link">LINKEDIN</a>
+          <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="footer-link">GITHUB</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 VARUN VISHWA. ALL RIGHTS RESERVED.</span>
+        <span style="color: var(--orange-bright);">BUILT WITH CURIOSITY.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CASE STUDY MODAL DRAWER -->
+  <div id="case-study-modal" class="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content-container">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">✕</button>
+      <div id="modal-dynamic-content" class="modal-body">
+        <!-- Dynamically injected case study details -->
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD Toast Notification -->
+  <div id="hud-toast" class="hud-toast-notification">
+    <span>◈</span>
+    <span id="toast-text">HUD NOTIFICATION</span>
+  </div>
+
+  <!-- Engine Script -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
