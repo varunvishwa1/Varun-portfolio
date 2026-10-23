@@ -5,173 +5,404 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO & Metadata -->
-  <title>Varun Vishwa | AI Product Engineer</title>
-  <meta name="description" content="Varun Vishwa is a technology-focused builder exploring AI, product engineering, emerging technologies and building useful products.">
-  <meta name="keywords" content="Varun Vishwa, AI Product Engineer, Product Builder, LLM Engineering, Software Engineering, Creative Technologist, Generative AI">
+  <title>Varun Vishwa // AI Product Engineer & Creative Technologist</title>
+  <meta name="description" content="Varun Vishwa is an AI Product Engineer and Creative Technologist building AI-powered products, software experiences, and interactive digital solutions.">
+  <meta name="keywords" content="Varun Vishwa, AI Product Engineer, Software Developer, Creative Technologist, Digimatrix, RAG, Machine Learning, Full Stack Developer, Coimbatore">
   <meta name="author" content="Varun Vishwa">
   
-  <!-- Open Graph -->
+  <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Varun Vishwa | AI Product Engineer">
-  <meta property="og:description" content="Technology-focused builder who loves turning ideas into real products. Curious. Creative. Ambitious.">
-  <meta property="og:site_name" content="Varun Vishwa Portfolio">
+  <meta property="og:title" content="Varun Vishwa // AI Product Engineer & Creative Technologist">
+  <meta property="og:description" content="I build AI-powered products, software experiences, and interactive digital solutions that connect technology with real-world problems.">
+  <meta property="og:site_name" content="Varun Vishwa">
   
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23060504%22/><text y=%22.9em%22 x=%22.15em%22 font-size=%2280%22 font-weight=%22bold%22 fill=%22%23E07020%22>V</text></svg>">
+  <!-- Typography System: Space Grotesk, Instrument Serif, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- Monogram Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23080808%22/><text y=%22.72em%22 x=%22.18em%22 font-size=%2265%22 font-family=%22Space Grotesk,sans-serif%22 font-weight=%22700%22 fill=%22%23E50920%22>VV</text></svg>">
+
+  <!-- Core Stylesheet -->
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="site-revealed">
 
-  <!-- Ambient FX Layers -->
-  <div class="ambient-grid-bg"></div>
-  <div class="scanlines-overlay"></div>
-  <div class="ambient-vignette"></div>
+  <!-- Signature Crimson Energy Beam (Dynamic Loader & Transition Sweep) -->
+  <div id="crimson-energy-beam" class="crimson-energy-beam" aria-hidden="true"></div>
 
-  <!-- FLOATING HUD NAVIGATION -->
-  <header class="hud-nav-wrapper">
-    <nav class="hud-nav" aria-label="Main Navigation">
-      <a href="#hero" class="brand-anchor">
-        <span class="brand-dot"></span>
-        <span>VARUN VISHWA</span>
-      </a>
+  <!-- ==========================================================================
+       CINEMATIC 3D INTRO VIDEO EXPERIENCE (BEFORE SITE APPEARS)
+       Welcome to Varun Vishwa Portfolio - 3D Character Experience
+       Featuring "assets/3D charater Varun.mp4"
+       ========================================================================== -->
+  <aside id="intro-video-overlay" class="intro-video-overlay" aria-label="Welcome to Varun Vishwa Portfolio" onclick="window.dismissIntroVideo && window.dismissIntroVideo()" title="Click anywhere to Enter Portfolio">
+    <video id="intro-main-video" class="intro-main-video-fullscreen" autoplay muted playsinline preload="auto" onended="window.dismissIntroVideo && window.dismissIntroVideo()">
+      <source src="./assets/models/Create_3D_character_with_actions_20261021195133.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </aside>
 
-      <ul class="nav-links-desktop">
-        <li><a href="#about" class="nav-item-link"><span class="nav-num">01</span> ABOUT</a></li>
-        <li><a href="#work" class="nav-item-link"><span class="nav-num">02</span> WORK</a></li>
-        <li><a href="#skills" class="nav-item-link"><span class="nav-num">03</span> STACK</a></li>
-        <li><a href="#archive" class="nav-item-link"><span class="nav-num">04</span> ARCHIVE</a></li>
-        <li><a href="#beyond" class="nav-item-link"><span class="nav-num">05</span> BEYOND</a></li>
-        <li><a href="#contact" class="nav-item-link"><span class="nav-num">06</span> CONTACT</a></li>
-      </ul>
+  <!-- Self-Contained, Immediate Intro Controller (Works even before any external scripts load) -->
+  <script>
+    (function() {
+      var isDismissed = false;
+      var safetyTimer = null;
 
-      <div class="nav-controls">
-        <button id="audio-toggle-btn" class="audio-toggle-btn" title="Toggle Audio HUD" aria-label="Toggle Audio HUD">🔈</button>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Navigation Menu">☰</button>
-      </div>
-    </nav>
+      // Fast session check: if intro already seen in this session, reveal site instantly with 0ms delay
+      if (sessionStorage.getItem('varun_intro_viewed') === 'true') {
+        var overlayEarly = document.getElementById('intro-video-overlay');
+        if (overlayEarly) overlayEarly.style.display = 'none';
+        document.body.classList.remove('intro-active');
+        document.body.classList.add('site-revealed');
+        isDismissed = true;
+      }
+
+      window.dismissIntroVideo = function() {
+        if (isDismissed) return;
+        isDismissed = true;
+        try { sessionStorage.setItem('varun_intro_viewed', 'true'); } catch(e) {}
+        if (safetyTimer) clearTimeout(safetyTimer);
+
+        var overlay = document.getElementById('intro-video-overlay');
+        if (overlay) {
+          overlay.classList.add('is-hidden');
+          setTimeout(function() {
+            overlay.style.display = 'none';
+          }, 600);
+        }
+        document.body.classList.remove('intro-active');
+        document.body.classList.add('site-revealed');
+
+        // Trigger the signature crimson beam sweep
+        var beam = document.getElementById('crimson-energy-beam');
+        if (beam) {
+          beam.classList.remove('is-active');
+          void beam.offsetWidth;
+          beam.classList.add('is-active');
+        }
+
+        var v = document.getElementById('intro-main-video');
+        if (v) { try { v.pause(); } catch(e) {} }
+        var amb = document.getElementById('intro-ambient-video');
+        if (amb) { try { amb.pause(); } catch(e) {} }
+
+        window.dispatchEvent(new Event('resize'));
+      };
+
+      window.replayIntroVideo = function() {
+        isDismissed = false;
+        if (safetyTimer) clearTimeout(safetyTimer);
+        var overlay = document.getElementById('intro-video-overlay');
+        if (overlay) {
+          overlay.style.display = 'flex';
+          void overlay.offsetWidth;
+          overlay.classList.remove('is-hidden');
+        }
+        document.body.classList.add('intro-active');
+
+        var v = document.getElementById('intro-main-video');
+        if (v) {
+          v.currentTime = 0;
+          v.play().catch(function() {});
+          var dur = v.duration && !isNaN(v.duration) ? v.duration : 8;
+          safetyTimer = setTimeout(function() {
+            if (!isDismissed) window.dismissIntroVideo();
+          }, (dur * 1000) + 600);
+        }
+        var amb = document.getElementById('intro-ambient-video');
+        if (amb) {
+          amb.currentTime = 0;
+          amb.play().catch(function() {});
+        }
+      };
+
+      window.toggleIntroAudio = function() {
+        var v = document.getElementById('intro-main-video');
+        var audioIcon = document.getElementById('intro-audio-icon');
+        var audioText = document.getElementById('intro-audio-text');
+        var prompt = document.getElementById('intro-unmute-prompt');
+        if (!v) return;
+
+        v.muted = !v.muted;
+        if (audioIcon) audioIcon.textContent = v.muted ? '🔇' : '🔊';
+        if (audioText) audioText.textContent = v.muted ? 'SOUND OFF' : 'SOUND ON';
+        if (prompt) {
+          if (v.muted) prompt.classList.add('is-visible');
+          else prompt.classList.remove('is-visible');
+        }
+        if (v.paused) v.play().catch(function() {});
+      };
+
+      // Progress bar updates
+      var v = document.getElementById('intro-main-video');
+      var fill = document.getElementById('intro-progress-fill');
+      var spark = document.getElementById('intro-progress-spark');
+      var timeDisplay = document.getElementById('intro-time-display');
+
+      function formatTime(sec) {
+        var m = Math.floor(sec / 60);
+        var s = Math.floor(sec % 60);
+        return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      if (v) {
+        v.addEventListener('timeupdate', function() {
+          var cur = v.currentTime || 0;
+          var dur = v.duration && !isNaN(v.duration) ? v.duration : 8;
+          var pct = Math.min(100, Math.max(0, (cur / dur) * 100));
+          if (fill) fill.style.width = pct + '%';
+          if (spark) spark.style.left = pct + '%';
+          if (timeDisplay) {
+            timeDisplay.textContent = formatTime(cur) + ' / ' + formatTime(dur);
+          }
+        });
+
+        // Automatically transition into the home page when video finishes
+        v.addEventListener('ended', function() {
+          window.dismissIntroVideo();
+        });
+
+        // Fast safety timer matched to video length
+        v.addEventListener('loadedmetadata', function() {
+          if (safetyTimer) clearTimeout(safetyTimer);
+          var delay = (v.duration && !isNaN(v.duration) ? (v.duration * 1000) + 400 : 7000);
+          safetyTimer = setTimeout(function() {
+            if (!isDismissed) window.dismissIntroVideo();
+          }, delay);
+        });
+
+        // Fast fallback on error or stall so page is never blocked
+        v.addEventListener('error', function() {
+          window.dismissIntroVideo();
+        });
+        v.addEventListener('stalled', function() {
+          setTimeout(function() {
+            if (!isDismissed && (v.paused || v.readyState < 3)) {
+              window.dismissIntroVideo();
+            }
+          }, 1500);
+        });
+      }
+
+      // Keyboard support
+      window.addEventListener('keydown', function(e) {
+        if (isDismissed) return;
+        if (e.key === 'Escape' || e.key === 'Enter') {
+          window.dismissIntroVideo();
+        } else if (e.key === 'm' || e.key === 'M') {
+          window.toggleIntroAudio();
+        }
+      });
+
+      // Default safety fallback: auto-enter after 5 seconds max if video cannot start
+      safetyTimer = setTimeout(function() {
+        if (!isDismissed) {
+          window.dismissIntroVideo();
+        }
+      }, 5000);
+    })();
+  </script>
+
+
+  <!-- ==========================================================================
+       CANVAS & BACKGROUND AMBIENT LAYERS
+       ========================================================================== -->
+  <!-- Cursor-Responsive Orange Laser Trails (Canvas 60fps) -->
+  <canvas id="laser-trails-canvas" aria-hidden="true"></canvas>
+
+  <!-- Atmospheric Glow & Technical Grid Backdrops -->
+  <div class="ambient-glow-background" aria-hidden="true"></div>
+  <div class="technical-grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       SITE NAVIGATION
+       ========================================================================== -->
+  <header id="site-header" class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Main Navigation">
+        <!-- Left: Wordmark & Identity -->
+        <a href="#hero" class="nav-brand-group" aria-label="Varun Vishwa Home">
+          <span class="brand-monogram">VV</span>
+          <div class="brand-text-block">
+            <span class="brand-name">VARUN VISHWA</span>
+            <span class="brand-role-tag">AI PRODUCT ENGINEER</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links: Minimal Glass Nav (Home, About, Projects, Skills, Contact) -->
+        <ul class="nav-menu-desktop">
+          <li><a href="#hero" class="nav-link active" data-magnetic="true"><span class="nav-num">01</span>HOME</a></li>
+          <li><a href="#about" class="nav-link" data-magnetic="true"><span class="nav-num">02</span>ABOUT</a></li>
+          <li><a href="#projects" class="nav-link" data-magnetic="true"><span class="nav-num">03</span>PROJECTS</a></li>
+          <li><a href="#skills" class="nav-link" data-magnetic="true"><span class="nav-num">04</span>SKILLS</a></li>
+          <li><a href="#contact" class="nav-link" data-magnetic="true"><span class="nav-num">05</span>CONTACT</a></li>
+        </ul>
+
+        <!-- Right: Resume & Connect Action -->
+        <div class="nav-actions-group">
+          <a href="./assets/varun-resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn" title="View Varun's Resume (PDF)" data-magnetic="true">
+            <svg class="nav-resume-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>RESUME</span>
+          </a>
+          <a href="#contact" class="nav-connect-btn" data-magnetic="true">LET'S CONNECT</a>
+          
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" class="mobile-hamburger-btn" aria-label="Toggle navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Mobile Nav Drawer -->
-  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
-    <button id="mobile-drawer-close" class="modal-close-btn" style="position: absolute; top: 1.5rem; right: 1.5rem;" aria-label="Close Menu">✕</button>
-    <ul class="mobile-nav-links">
-      <li><a href="#hero" class="mobile-nav-link"><span>00</span> HOME</a></li>
-      <li><a href="#about" class="mobile-nav-link"><span>01</span> ABOUT & PHILOSOPHY</a></li>
-      <li><a href="#work" class="mobile-nav-link"><span>02</span> WORK & CASE STUDIES</a></li>
-      <li><a href="#skills" class="mobile-nav-link"><span>03</span> STACK & EXPLORING</a></li>
-      <li><a href="#archive" class="mobile-nav-link"><span>04</span> COMMAND ARCHIVE</a></li>
-      <li><a href="#beyond" class="mobile-nav-link"><span>05</span> BEYOND THE CODE</a></li>
-      <li><a href="#contact" class="mobile-nav-link"><span>06</span> TRANSMIT & CONNECT</a></li>
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-top">
+      <span class="brand-name" style="font-size: 1.1rem;">VARUN VISHWA // MENU</span>
+      <button id="mobile-close-btn" class="mobile-close-btn" aria-label="Close navigation menu">✕</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="mobile-nav-item"><span class="mobile-num">01</span> HOME</a></li>
+      <li><a href="#about" class="mobile-nav-item"><span class="mobile-num">02</span> ABOUT</a></li>
+      <li><a href="#projects" class="mobile-nav-item"><span class="mobile-num">03</span> PROJECTS</a></li>
+      <li><a href="#skills" class="mobile-nav-item"><span class="mobile-num">04</span> SKILLS</a></li>
+      <li><a href="#contact" class="mobile-nav-item"><span class="mobile-num">05</span> CONTACT</a></li>
+      <li><a href="./assets/varun-resume.pdf" target="_blank" rel="noopener noreferrer" class="mobile-nav-item"><span class="mobile-num">06</span> RESUME (PDF) ↗</a></li>
     </ul>
+    <div style="margin-top: auto; padding-top: 2rem;">
+      <a href="#contact" class="btn-crimson-solid mobile-connect-btn" style="width: 100%; justify-content: center;">
+        <span>LET'S CONNECT</span>
+        <span>→</span>
+      </a>
+    </div>
   </div>
 
   <main>
     <!-- ==========================================================================
-         00. HERO SECTION
+         HERO SECTION: EDITORIAL LANDMARK COMPOSITION
+         Giant Typography Behind 3D Avatar, Left Narrative, Right 3D Avatar Stage
          ========================================================================== -->
-    <section id="hero" class="hero-section">
-      <div class="container">
-        
-        <!-- Status & Section Header Bar -->
-        <div class="hero-status-bar">
-          <span class="hero-top-tag">BUILDER COMMAND CENTER</span>
-          <div class="hero-live-status-group">
-            <span class="hud-live-pill"><span class="live-indicator"></span> SYS::ONLINE</span>
-            <span id="hud-counter-text" class="hud-counter">01 / 06</span>
-          </div>
-        </div>
+    <section id="hero" class="hero-editorial-section">
+      <!-- Giant Background Typography: VARUN VISHWA (Character overlaps for 3D depth) -->
+      <div id="hero-giant-typography" class="hero-giant-typography-wrap" aria-hidden="true">
+        <div class="hero-giant-word">VARUN</div>
+        <div class="hero-giant-word crimson-tinge">VISHWA</div>
+      </div>
 
-        <div class="hero-grid">
+      <!-- Centered Subtle Crimson Illumination & Fine Grid Lines -->
+      <div class="hero-crimson-spotlight" aria-hidden="true"></div>
+      <div class="hero-hairline-grid" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 4;">
+        <div class="hero-editorial-grid">
           
-          <!-- Portrait Spotlight Column (Mobile-First Top Centerpiece) -->
-          <div class="hero-portrait-column">
-            <div class="cyber-portrait-frame" id="hero-spotlight-frame">
-              <span class="bracket top-left"></span>
-              <span class="bracket top-right"></span>
-              <span class="bracket bottom-left"></span>
-              <span class="bracket bottom-right"></span>
-
-              <!-- Portrait Base Layer -->
-              <div class="portrait-layer portrait-base">
-                <img src="./assets/varun-portrait.png" alt="Varun Vishwa" class="portrait-img" loading="eager">
-                <div class="portrait-scanline-fx"></div>
-              </div>
-
-              <!-- Portrait Cyber Reveal Layer -->
-              <div class="portrait-layer portrait-reveal" id="portrait-reveal-layer">
-                <img src="./assets/varun-portrait.png" alt="Varun Vishwa Cyber Schematic" class="portrait-img schematic-filter">
-                <div class="schematic-hud-overlay">
-                  <div class="hud-circle-reticle"></div>
-                  <div class="hud-schematic-line"></div>
-                  <span class="hud-label-schematic">SYS_REVEAL // NEURAL_ACTIVE</span>
-                </div>
-              </div>
-
-              <div class="spotlight-cursor-ring" id="spotlight-cursor-ring"></div>
-
-              <div class="portrait-badge-top">
-                <span class="badge-dot"></span>
-                <span>ID: VARUN_VISHWA</span>
-              </div>
-              <div class="portrait-badge-bottom">
-                <span>BUILD-01 // AI PRODUCT ENGINEER</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Main Copy & Direct Social Links -->
-          <div class="hero-main-copy">
-            <div class="hero-meta-badge">
-              <span>⚡</span>
-              <span>AI • PRODUCT ENGINEERING • EMERGING TECH</span>
+          <!-- Left Column: Personal Brand Narrative, CTAs & Telemetry HUD -->
+          <div class="hero-left-column">
+            <!-- Small Label -->
+            <div class="hero-top-badge hero-stagger-item delay-0">
+              <span class="status-pulse-dot"></span>
+              <span class="hero-tech-label">AI • SOFTWARE • CREATIVE TECHNOLOGY</span>
             </div>
 
-            <div class="hero-title-group">
-              <div class="hero-name">VARUN VISHWA</div>
-              <h1 class="hero-headline">
-                AI PRODUCT<br><span class="highlight">ENGINEER</span>
+            <!-- Main Heading -->
+            <div class="hero-heading-block hero-stagger-item delay-1">
+              <h1 class="hero-cinematic-heading">
+                <span class="heading-line">BUILDING</span>
+                <span class="heading-line highlight-crimson">INTELLIGENT</span>
+                <span class="heading-line">EXPERIENCES.</span>
               </h1>
             </div>
 
-            <!-- TOP SOCIAL PILLS (Direct Real Links) -->
-            <div class="hero-top-social-pills">
-              <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="social-hud-pill">
-                <span class="pill-icon">in</span>
-                <span>LINKEDIN</span>
-              </a>
-              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="social-hud-pill">
-                <span class="pill-icon">gh</span>
-                <span>GITHUB</span>
-              </a>
-              <a href="#contact" class="social-hud-pill">
-                <span class="pill-icon">@</span>
-                <span>EMAIL</span>
-              </a>
-            </div>
-
-            <p class="hero-desc">
-              Technology-focused builder who loves turning ideas into real products. Exploring AI, product engineering, and emerging technologies to transform ideas into useful experiences.
+            <!-- Supporting Text -->
+            <p class="hero-editorial-desc hero-stagger-item delay-2">
+              Architecting intelligent software systems, applied AI products, and immersive interactive digital experiences.
             </p>
 
-            <div class="hero-actions">
-              <a href="#work" class="cyber-btn-primary">
-                <span>EXPLORE WORK</span>
-                <span>➔</span>
+            <!-- Action CTAs -->
+            <div class="hero-cta-buttons hero-stagger-item delay-4">
+              <a href="#projects" id="hero-explore-btn" class="btn-crimson-solid" data-magnetic="true">
+                <span>EXPLORE MY WORK</span>
+                <span class="btn-icon-arrow">→</span>
               </a>
-              <a href="#contact" class="cyber-btn-secondary">
+              <a href="./assets/varun-resume.pdf" target="_blank" rel="noopener noreferrer" id="hero-resume-btn" class="btn-glass-ghost" data-magnetic="true">
+                <span>VIEW RESUME</span>
+                <span class="btn-icon-arrow">↗</span>
+              </a>
+              <a href="#contact" id="hero-connect-btn" class="btn-glass-ghost" data-magnetic="true">
                 <span>LET'S CONNECT</span>
-                <span>⚡</span>
               </a>
             </div>
 
-            <div class="hero-telemetry-inline">
-              <div class="telem-item"><span class="telem-lbl">FOCUS</span> <span class="telem-val">AI + Product</span></div>
-              <div class="telem-sep">/</div>
-              <div class="telem-item"><span class="telem-lbl">BUILD</span> <span class="telem-val">Intelligent SaaS</span></div>
-              <div class="telem-sep">/</div>
-              <div class="telem-item"><span class="telem-lbl">STATUS</span> <span class="telem-val" style="color: #34d399;">Active</span></div>
+            <!-- Quick Social Strip -->
+            <div class="hero-social-strip hero-stagger-item delay-4">
+              <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+                <span>//</span> LINKEDIN
+              </a>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+                <span>//</span> GITHUB
+              </a>
+              <a href="https://digimartrix.com/" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+                <span>//</span> DIGIMATRIX
+              </a>
+              <a href="mailto:varunvishwa169@gmail.com" class="hero-social-link">
+                <span>//</span> EMAIL
+              </a>
+            </div>
+
+            <!-- Sleek Integrated Telemetry HUD Grid -->
+            <div class="hero-telemetry-hud hero-stagger-item delay-5" id="hero-telemetry-container">
+              <div class="telemetry-item">
+                <span class="telemetry-label">01 // FOCUS</span>
+                <span class="telemetry-value">AI & Software Engineering</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">02 // COMPANY</span>
+                <span class="telemetry-value">Founder / Digimatrix</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">03 // ARCHITECTURE</span>
+                <span class="telemetry-value">Product Development & RAG</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">04 // IMMERSIVE</span>
+                <span class="telemetry-value">Creative Tech & WebXR</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center/Right Side: Varun's-avatar 3D Character Stage & Three.js Canvas -->
+          <div class="hero-avatar-center-stage">
+            <div id="avatar-3d-wrapper" class="avatar-interactive-wrapper" title="Click avatar to interact!">
+              
+              <!-- Three.js Canvas: 3D character, dynamic orange rim light, red atmospheric fill, and orbiting light trails -->
+              <canvas id="hero-three-canvas" class="hero-three-canvas" aria-label="3D Avatar of Varun Vishwa"></canvas>
+
+              <!-- Real-time Speech / Interaction Bubble on Click -->
+              <div id="avatar-speech-bubble" class="avatar-speech-bubble" aria-live="polite">
+                <span class="bubble-greeting">Hey there! 👋</span>
+                <span class="bubble-sub">Welcome to my universe.</span>
+              </div>
+
+              <!-- High-Resolution 3D Avatar Fallback / Overlay -->
+              <div id="avatar-fallback-container" class="avatar-floating-container">
+                <div class="avatar-rim-glow-effect" aria-hidden="true"></div>
+                <div class="avatar-orange-light-ring" aria-hidden="true"></div>
+                <img id="hero-avatar-img" src="./assets/Varun's-avatar.png" alt="Varun's-avatar 3D Character" class="avatar-3d-img" loading="eager">
+              </div>
+
+              <!-- Interactive Badge / Status Pill -->
+              <div class="avatar-interaction-hint" id="avatar-hint">
+                <span class="hint-dot"></span>
+                <span id="avatar-status-label">VARUN'S-AVATAR // CLICK TO GREET</span>
+              </div>
             </div>
           </div>
 
@@ -180,283 +411,776 @@
     </section>
 
     <!-- ==========================================================================
-         01. ABOUT & BUILDER PHILOSOPHY
+         01 / ABOUT SECTION: 2-COLUMN EDITORIAL + SIGNATURE
          ========================================================================== -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding section-border-top">
       <div class="container">
-        <div class="section-header">
-          <div class="section-tag">01 // IDENTITY & PHILOSOPHY</div>
-          <h2 class="section-title">WHO IS VARUN?</h2>
-        </div>
-
-        <div class="about-consolidated-grid">
-          <div class="about-bio-card">
-            <div class="personality-monumental">
-              <span>CURIOUS.</span>
-              <span>CREATIVE.</span>
-              <span>AMBITIOUS.</span>
-            </div>
-
-            <p class="about-lead-text">
-              Varun Vishwa is a Computer Science Engineering student and technology-focused builder interested in AI, product engineering, emerging technologies and turning ideas into real products.
-            </p>
-            <p class="about-sub-text">
-              He combines engineering, product thinking, and creativity to experiment with ideas rather than staying inside a single domain.
-            </p>
-
-            <div class="about-meta-chips">
-              <div class="meta-chip"><span class="chip-lbl">BASED IN</span> <span class="chip-val">India</span></div>
-              <div class="meta-chip"><span class="chip-lbl">FOCUS</span> <span class="chip-val">AI + Product</span></div>
-              <div class="meta-chip"><span class="chip-lbl">MINDSET</span> <span class="chip-val">Build • Learn • Explore</span></div>
-            </div>
-          </div>
-
-          <div class="philosophy-stages-column">
-            <div class="stage-mini-card">
-              <div class="stage-num">01</div>
-              <div class="stage-info">
-                <h3 class="stage-title">EXPLORE</h3>
-                <p class="stage-desc">Understanding problems, technologies and possibilities from first principles.</p>
-              </div>
-            </div>
-
-            <div class="stage-mini-card active-stage">
-              <div class="stage-num">02</div>
-              <div class="stage-info">
-                <h3 class="stage-title">BUILD</h3>
-                <p class="stage-desc">Turning concepts into working prototypes, robust software and scalable systems.</p>
-              </div>
-            </div>
-
-            <div class="stage-mini-card">
-              <div class="stage-num">03</div>
-              <div class="stage-info">
-                <h3 class="stage-title">EVOLVE</h3>
-                <p class="stage-desc">Improving products through experimentation, real feedback loops and learning.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         02. WORK & CASE STUDIES
-         ========================================================================== -->
-    <section id="work" class="section-padding">
-      <div class="container">
-        <div class="section-header-row">
+        
+        <div class="section-header-compact reveal-on-scroll">
           <div>
-            <div class="section-tag">02 // WORK</div>
-            <h2 class="section-title">THINGS I'VE BUILT</h2>
-            <p class="section-subtitle">Case studies of working products, experiments and systems.</p>
-          </div>
-
-          <div class="projects-filter-bar">
-            <button class="filter-btn active" data-filter="ALL">ALL</button>
-            <button class="filter-btn" data-filter="AI">AI / ML</button>
-            <button class="filter-btn" data-filter="PRODUCT">PRODUCT</button>
-            <button class="filter-btn" data-filter="AR/3D">AR / 3D</button>
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>01 // ABOUT</span>
+            </div>
+            <h2 class="section-title-large">
+              BUILDING AT THE INTERSECTION OF<br>
+              <span class="serif-accent">AI, Software</span> & Experience.
+            </h2>
           </div>
         </div>
 
-        <div id="projects-grid" class="projects-grid">
-          <!-- Dynamically populated -->
+        <div class="about-editorial-grid">
+          <!-- Left Column: Editorial Photo Card -->
+          <div class="about-portrait-card reveal-on-scroll stagger-1">
+            <span class="about-corner-bracket tl"></span>
+            <span class="about-corner-bracket tr"></span>
+            <span class="about-corner-bracket bl"></span>
+            <span class="about-corner-bracket br"></span>
+
+            <div class="about-img-frame">
+              <img src="./assets/varun-portrait-opt.jpg" alt="Varun Vishwa Portrait" class="about-personal-photo" loading="lazy">
+            </div>
+
+            <div class="about-card-badge">
+              <span>VARUN VISHWA // PROFILE</span>
+              <span class="id-status">SYSTEM ID: VV-AI-01</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Personal Narrative & Facts -->
+          <div class="about-narrative-column">
+            <div class="about-lead-quote reveal-on-scroll stagger-2">
+              "Technology is what I build. Curiosity is what drives me."
+            </div>
+
+            <div id="about-paragraphs-list" class="about-body-paragraphs reveal-on-scroll stagger-3">
+              <!-- Dynamically populated from portfolioData.about.paragraphs -->
+            </div>
+
+            <div id="about-facts-grid" class="about-fact-grid reveal-on-scroll stagger-4">
+              <!-- Dynamically populated from portfolioData.about.facts -->
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================================================
-         03. TECH STACK & CURRENTLY EXPLORING
+         02 / SELECTED PROJECTS SECTION: 3D STACKED DECK SLIDER & EDITORIAL GRID
          ========================================================================== -->
-    <section id="skills" class="section-padding">
+    <section id="projects" class="section-padding section-border-top">
       <div class="container">
-        <div class="section-header">
-          <div class="section-tag">03 // TECH STACK & FRONTIERS</div>
-          <h2 class="section-title">TOOLS & EXPLORATION</h2>
-          <p class="section-subtitle">Categorized skills and active research domains.</p>
-        </div>
-
-        <div class="stack-combined-grid">
-          <div id="skills-matrix" class="skills-categories-matrix">
-            <!-- Dynamically populated -->
+        
+        <div class="section-header-compact reveal-on-scroll">
+          <div>
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>02 // PORTFOLIO</span>
+            </div>
+            <h2 class="section-title-large">SELECTED PROJECTS</h2>
+            <p class="section-subtitle-text">
+              Real applications, AI architectures, productivity tools, and interactive prototypes built to solve tangible problems.
+            </p>
           </div>
 
-          <div class="now-frontiers-panel">
-            <div class="frontiers-header">
-              <span class="frontiers-title">CURRENTLY EXPLORING</span>
-              <span class="cyber-tag">ACTIVE FOCUS</span>
-            </div>
-            <div id="now-grid" class="frontiers-list">
-              <!-- Dynamically populated -->
-            </div>
+          <div class="projects-controls-group">
+            <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="section-header-action" data-magnetic="true">
+              <span>VIEW ALL REPOSITORIES</span>
+              <span>→</span>
+            </a>
           </div>
         </div>
+
+        <!-- 6 Projects Responsive Grid -->
+        <div id="projects-grid" class="projects-editorial-grid">
+          <article class="project-card reveal-on-scroll stagger-1" data-project-id="vsafe">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">01 // SECURITY / EXTENSION</span>
+              <span class="project-category-badge">CHROME EXTENSION</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="vsafe" onclick="window.openCaseStudy && window.openCaseStudy('vsafe')">
+              <img src="./assets/project-vsafe.jpg" alt="Vsafe" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag ">COMPLETED PRODUCT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Vsafe</h3>
+              <p class="project-short-desc">A Chrome extension designed to help users identify potentially malicious URLs and phishing links in real-time.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">JavaScript (ES6+)</span><span class="tech-tag">Chrome Extension APIs</span><span class="tech-tag">Cybersecurity Heuristics</span><span class="tech-tag">URL Analysis</span>
+                <span class="tech-tag">+2</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="vsafe" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('vsafe')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+          <article class="project-card reveal-on-scroll stagger-2" data-project-id="studymate">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">02 // AI / EDUCATION</span>
+              <span class="project-category-badge">AI PRODUCT</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="studymate" onclick="window.openCaseStudy && window.openCaseStudy('studymate')">
+              <img src="./assets/project-studymate.jpg" alt="StudyMate" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag ">COMPLETED PRODUCT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">StudyMate</h3>
+              <p class="project-short-desc">An AI-powered PDF question-answering system for students to study, query, and understand academic documents efficiently.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Mistral LLM</span><span class="tech-tag">HuggingFace</span>
+                <span class="tech-tag">+3</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="studymate" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('studymate')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+          <article class="project-card reveal-on-scroll stagger-3" data-project-id="vedcrop">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">03 // AGRITECH / EDGE AI</span>
+              <span class="project-category-badge">MOBILE AI APPLICATION</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="vedcrop" onclick="window.openCaseStudy && window.openCaseStudy('vedcrop')">
+              <img src="./assets/project-vedcrop.jpg" alt="VedCrop" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag ">COMPLETED PRODUCT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">VedCrop</h3>
+              <p class="project-short-desc">An AI-powered crop disease detection application, designed around offline usage and multilingual farmer accessibility.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">Computer Vision</span><span class="tech-tag">TensorFlow Lite</span><span class="tech-tag">Multilingual NLP</span>
+                <span class="tech-tag">+2</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="vedcrop" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('vedcrop')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+          <article class="project-card reveal-on-scroll stagger-4" data-project-id="focusmate">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">04 // PRODUCTIVITY CONCEPT</span>
+              <span class="project-category-badge">BROWSER EXTENSION CONCEPT</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="focusmate" onclick="window.openCaseStudy && window.openCaseStudy('focusmate')">
+              <img src="./assets/project-focusmate.jpg" alt="FocusMate Study Copilot" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag concept-tag">PRODUCT CONCEPT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">FocusMate Study Copilot</h3>
+              <p class="project-short-desc">A productivity extension concept for structured study planning, distraction management, and focus tracking.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">JavaScript (ES6+)</span><span class="tech-tag">Browser Storage APIs</span><span class="tech-tag">UI/UX Design</span><span class="tech-tag">Productivity Analytics</span>
+                <span class="tech-tag">+1</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="focusmate" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('focusmate')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+          <article class="project-card reveal-on-scroll stagger-5" data-project-id="mithrai-digimatrix">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">05 // 3D / SPATIAL TECH</span>
+              <span class="project-category-badge">IMMERSIVE WEB PLATFORM</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="mithrai-digimatrix" onclick="window.openCaseStudy && window.openCaseStudy('mithrai-digimatrix')">
+              <img src="./assets/project-mithrai.jpg" alt="Mithrai / Digimatrix" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag ">COMPLETED PRODUCT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Mithrai / Digimatrix</h3>
+              <p class="project-short-desc">A 3D and augmented-reality experience platform exploring interactive digital spatial computing.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">Three.js</span><span class="tech-tag">WebXR</span><span class="tech-tag">WebGL</span><span class="tech-tag">GLTF Pipelines</span>
+                <span class="tech-tag">+2</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="mithrai-digimatrix" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('mithrai-digimatrix')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+          <article class="project-card reveal-on-scroll stagger-6" data-project-id="campus-freelance-hub">
+            <div class="card-glare-effect" aria-hidden="true"></div>
+            <div class="project-card-header">
+              <span class="project-id-num">06 // MARKETPLACE CONCEPT</span>
+              <span class="project-category-badge">STUDENT PLATFORM CONCEPT</span>
+            </div>
+            <div class="project-image-box" data-action="open-modal" data-project-id="campus-freelance-hub" onclick="window.openCaseStudy && window.openCaseStudy('campus-freelance-hub')">
+              <img src="./assets/project-freelance.jpg" alt="Campus Freelance Hub" class="project-preview-img" loading="lazy">
+              <div class="project-image-overlay"></div>
+              <span class="project-status-tag concept-tag">PRODUCT CONCEPT</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Campus Freelance Hub</h3>
+              <p class="project-short-desc">A student-focused freelancing platform concept designed around verified student users and peer project collaboration.</p>
+              <div class="project-tech-tags">
+                <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">JWT Authentication</span>
+                <span class="tech-tag">+2</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <button class="btn-case-study" data-action="open-modal" data-project-id="campus-freelance-hub" data-magnetic="true" onclick="window.openCaseStudy && window.openCaseStudy('campus-freelance-hub')">
+                <span>VIEW CASE STUDY</span>
+                <span>→</span>
+              </button>
+              <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="project-repo-link" aria-label="View source code on GitHub">
+                [GITHUB REPO]
+              </a>
+            </div>
+          </article>
+        </div>
+
       </div>
     </section>
 
     <!-- ==========================================================================
-         04. COMMAND ARCHIVE (TABBED)
+         03 / DIGIMATRIX COMPANY IDENTITY SECTION
          ========================================================================== -->
-    <section id="archive" class="section-padding">
+    <section id="digimatrix" class="section-padding section-border-top digimatrix-section">
       <div class="container">
-        <div class="section-header">
-          <div class="section-tag">04 // COMMAND ARCHIVE</div>
-          <h2 class="section-title">JOURNEY & CREDENTIALS</h2>
-          <p class="section-subtitle">Interactive archive of leadership, academic foundation, and verified tracks.</p>
-        </div>
-
-        <div class="archive-tabs-nav">
-          <button class="archive-tab-btn active" data-tab="journey">
-            <span>01</span> LEADERSHIP & JOURNEY
-          </button>
-          <button class="archive-tab-btn" data-tab="education">
-            <span>02</span> EDUCATION FOUNDATION
-          </button>
-          <button class="archive-tab-btn" data-tab="achievements">
-            <span>03</span> HACKATHONS & TRACKS
-          </button>
-        </div>
-
-        <div class="archive-panes-wrapper">
-          <div id="pane-journey" class="archive-pane active">
-            <div id="journey-timeline-flow" class="timeline-vertical-flow">
-              <!-- Dynamically populated -->
+        
+        <div class="digimatrix-brand-container reveal-on-scroll">
+          <div class="digimatrix-header-row">
+            <div class="digimatrix-title-group">
+              <div class="digimatrix-company-badge">
+                <span class="status-pulse-dot"></span>
+                <span>MY COMPANY // FOUNDER</span>
+              </div>
+              <h2 class="digimatrix-wordmark">DIGI<span>MATRIX</span></h2>
             </div>
+
+            <a href="https://digimartrix.com/" target="_blank" rel="noopener noreferrer" class="digimatrix-company-link" data-magnetic="true">
+              <span>VISIT OFFICIAL WEBSITE</span>
+              <span>→</span>
+            </a>
           </div>
 
-          <div id="pane-education" class="archive-pane">
-            <div id="education-card" class="education-hero-card">
-              <!-- Dynamically populated -->
-            </div>
-          </div>
+          <p class="digimatrix-desc-text">
+            Exploring AI, digital products, and immersive technology through practical software experiences. Digimatrix serves as my company and product-building platform, bridging modern AI models with robust full-stack software and interactive spatial 3D media.
+          </p>
 
-          <div id="pane-achievements" class="archive-pane">
-            <div id="achievements-grid" class="achievements-archive-grid">
-              <!-- Dynamically populated -->
+          <div id="digimatrix-pillars" class="digimatrix-pillars-grid">
+            <div class="pillar-card reveal-on-scroll stagger-1">
+              <div class="card-glare-effect" aria-hidden="true"></div>
+              <div class="pillar-num">01 // PILLAR</div>
+              <h4 class="pillar-title">AI PRODUCTS & AUTOMATION</h4>
+              <p class="pillar-desc">Engineering custom LLM workflows, retrieval-augmented generation pipelines, and pragmatic automation engines.</p>
+            </div>
+            <div class="pillar-card reveal-on-scroll stagger-2">
+              <div class="card-glare-effect" aria-hidden="true"></div>
+              <div class="pillar-num">02 // PILLAR</div>
+              <h4 class="pillar-title">ROBUST WEB ARCHITECTURE</h4>
+              <p class="pillar-desc">Designing fast, responsive, and secure full-stack web applications with modern frontend engineering and scalable backends.</p>
+            </div>
+            <div class="pillar-card reveal-on-scroll stagger-3">
+              <div class="card-glare-effect" aria-hidden="true"></div>
+              <div class="pillar-num">03 // PILLAR</div>
+              <h4 class="pillar-title">SPATIAL & CREATIVE TECH</h4>
+              <p class="pillar-desc">Building interactive 3D interfaces, WebGL environments, and augmented reality prototypes that push visual boundaries.</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================================================
-         05. BEYOND THE CODE & BANNER
+         04 / WORK PROCESS SECTION: 5 STRUCTURED STAGES
          ========================================================================== -->
-    <section id="beyond" class="section-padding">
+    <section id="process" class="section-padding section-border-top">
       <div class="container">
-        <div class="section-header">
-          <div class="section-tag">05 // BEYOND THE CODE</div>
-          <h2 class="section-title">CURIOSITY DRIVES ME.</h2>
-          <p class="section-subtitle">Multidisciplinary perspectives shaping creativity and mindset.</p>
+        
+        <div class="section-header-compact reveal-on-scroll">
+          <div>
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>04 // METHODOLOGY</span>
+            </div>
+            <h2 class="section-title-large">WORK PROCESS</h2>
+            <p class="section-subtitle-text">
+              A structured, disciplined engineering methodology from first-principles discovery to deployment and continuous iteration.
+            </p>
+          </div>
         </div>
 
-        <div id="beyond-grid" class="beyond-cards-grid">
-          <!-- Dynamically populated -->
+        <div class="process-timeline-wrapper">
+          <div class="process-vertical-line" aria-hidden="true"></div>
+          <div id="process-timeline-container">
+            <div class="process-step-row reveal-on-scroll stagger-1">
+              <div class="process-node">01</div>
+              <div class="process-content-card">
+                <h4 class="process-step-title">DISCOVER</h4>
+                <div class="process-step-subtitle">PROBLEM & REQUIREMENTS</div>
+                <p class="process-step-desc">Understand the core problem, user needs, domain constraints, and technical feasibility before writing code.</p>
+              </div>
+            </div>
+            <div class="process-step-row reveal-on-scroll stagger-2">
+              <div class="process-node">02</div>
+              <div class="process-content-card">
+                <h4 class="process-step-title">DESIGN</h4>
+                <div class="process-step-subtitle">ARCHITECTURE & EXPERIENCE</div>
+                <p class="process-step-desc">Define the data flow, component boundaries, UX workflows, and responsive visual hierarchy.</p>
+              </div>
+            </div>
+            <div class="process-step-row reveal-on-scroll stagger-3">
+              <div class="process-node">03</div>
+              <div class="process-content-card">
+                <h4 class="process-step-title">BUILD</h4>
+                <div class="process-step-subtitle">ENGINEERING & INTEGRATION</div>
+                <p class="process-step-desc">Implement clean, modular software and seamlessly connect AI models, APIs, and interactive frontends.</p>
+              </div>
+            </div>
+            <div class="process-step-row reveal-on-scroll stagger-4">
+              <div class="process-node">04</div>
+              <div class="process-content-card">
+                <h4 class="process-step-title">TEST</h4>
+                <div class="process-step-subtitle">VALIDATION & BENCHMARKING</div>
+                <p class="process-step-desc">Validate functionality, error boundaries, performance benchmarks, responsiveness, and security constraints.</p>
+              </div>
+            </div>
+            <div class="process-step-row reveal-on-scroll stagger-5">
+              <div class="process-node">05</div>
+              <div class="process-content-card">
+                <h4 class="process-step-title">SHIP</h4>
+                <div class="process-step-subtitle">DEPLOYMENT & ITERATION</div>
+                <p class="process-step-desc">Document architecture, deploy through robust pipelines, gather feedback, and continuously refine.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="philosophy-banner-box">
-          <blockquote class="philosophy-banner-quote">
-            "EXPLORE DIFFERENT FIELDS. <span class="highlight-line">TURN IDEAS INTO SOMETHING REAL.</span> KEEP BUILDING."
-          </blockquote>
-        </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         06. CONTACT & TRANSMISSION TERMINAL
+         05 / EXPERIENCE & LEADERSHIP SECTION: TIMELINE
          ========================================================================== -->
-    <section id="contact" class="section-padding contact-section-compact">
+    <section id="experience" class="section-padding section-border-top">
       <div class="container">
-        <div class="contact-box-grid">
-          <div class="contact-left-info">
-            <div class="section-tag">06 // TRANSMISSION</div>
-            <h2 class="contact-headline">LET'S BUILD SOMETHING REAL.</h2>
-            <p class="contact-subtext">
-              Have an idea, product, experiment, or problem worth exploring? My terminal is always open for collaboration.
+        
+        <div class="section-header-compact reveal-on-scroll">
+          <div>
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>05 // BACKGROUND</span>
+            </div>
+            <h2 class="section-title-large">EXPERIENCE & BUILDING</h2>
+            <p class="section-subtitle-text">
+              Product-building ventures, technical community leadership, student governance, and hands-on software development.
+            </p>
+          </div>
+        </div>
+
+        <div id="experience-timeline-list" class="experience-timeline-container">
+          <div class="timeline-entry-card reveal-on-scroll stagger-1">
+            <div class="timeline-entry-top">
+              <span class="timeline-period-badge">COMMUNITY & MENTORSHIP</span>
+              <span class="timeline-type-badge">Builder Community</span>
+            </div>
+            <h3 class="timeline-role-title">Community Lead & Technical Organizer</h3>
+            <div class="timeline-org-name">Developer Hub</div>
+            <p class="timeline-desc-text">Founded and scaled an active peer developer collective. Curated hands-on coding bootcamps, organized collegiate buildathons, and mentored aspiring engineers in Git collaboration, modern web frameworks, and API integrations.</p>
+            <div class="timeline-skills-list">
+              <span class="timeline-skill-pill">Developer Community</span><span class="timeline-skill-pill">Technical Mentorship</span><span class="timeline-skill-pill">Open Source Workflows</span><span class="timeline-skill-pill">Buildathons</span>
+            </div>
+          </div>
+          <div class="timeline-entry-card reveal-on-scroll stagger-2">
+            <div class="timeline-entry-top">
+              <span class="timeline-period-badge">LEADERSHIP & GOVERNANCE</span>
+              <span class="timeline-type-badge">Institutional Governance</span>
+            </div>
+            <h3 class="timeline-role-title">Student Secretary & Technical Lead</h3>
+            <div class="timeline-org-name">Department of Computer Science & Engineering</div>
+            <p class="timeline-desc-text">Appointed to head the departmental student council. Spearheaded state-level technical symposiums, managed multi-track hackathons, and facilitated industry speaker sessions spanning artificial intelligence and cloud computing.</p>
+            <div class="timeline-skills-list">
+              <span class="timeline-skill-pill">Executive Leadership</span><span class="timeline-skill-pill">Symposium Management</span><span class="timeline-skill-pill">Technical Logistics</span><span class="timeline-skill-pill">Industry Liaison</span>
+            </div>
+          </div>
+          <div class="timeline-entry-card reveal-on-scroll stagger-3">
+            <div class="timeline-entry-top">
+              <span class="timeline-period-badge">COMPETITIVE ENGINEERING</span>
+              <span class="timeline-type-badge">Sprint Engineering</span>
+            </div>
+            <h3 class="timeline-role-title">Autonomous Systems & AI Prototyper</h3>
+            <div class="timeline-org-name">National & Regional Hackathons</div>
+            <p class="timeline-desc-text">Competed in rapid 24-48 hour engineering hackathons. Prototyped high-impact solutions addressing agricultural disease triage, assistive educational agents, and cyber threat detection under tight time constraints.</p>
+            <div class="timeline-skills-list">
+              <span class="timeline-skill-pill">Rapid Prototyping</span><span class="timeline-skill-pill">RAG Pipelines</span><span class="timeline-skill-pill">Edge Computer Vision</span><span class="timeline-skill-pill">System Integration</span>
+            </div>
+          </div>
+          <div class="timeline-entry-card reveal-on-scroll stagger-4">
+            <div class="timeline-entry-top">
+              <span class="timeline-period-badge">CREATIVE DIRECTION</span>
+              <span class="timeline-type-badge">Design Engineering</span>
+            </div>
+            <h3 class="timeline-role-title">UI/UX & Creative Technologist</h3>
+            <div class="timeline-org-name">Independent & Department Media</div>
+            <p class="timeline-desc-text">Created high-fidelity interaction prototypes, editorial design systems, brand guidelines, and visual telemetry dashboards that elevate raw engineering into intuitive, memorable user products.</p>
+            <div class="timeline-skills-list">
+              <span class="timeline-skill-pill">Figma Systems</span><span class="timeline-skill-pill">Interaction Design</span><span class="timeline-skill-pill">Visual Architecture</span><span class="timeline-skill-pill">Design Tokens</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         06 / SKILLS & TECHNOLOGIES SECTION: COMPACT OUTLINED LABELS
+         ========================================================================== -->
+    <section id="skills" class="section-padding section-border-top">
+      <div class="container">
+        
+        <div class="section-header-compact reveal-on-scroll">
+          <div>
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>06 // TECHNICAL STACK</span>
+            </div>
+            <h2 class="section-title-large">SKILLS & TECHNOLOGIES</h2>
+            <p class="section-subtitle-text">
+              A disciplined technical stack centered on AI systems, modern software architectures, cloud infrastructure, and creative tools.
+            </p>
+          </div>
+        </div>
+
+        <div id="skills-categories-grid" class="skills-categories-grid">
+          <div class="skills-cat-panel reveal-on-scroll stagger-1">
+            <div class="skills-cat-header">
+              <h3 class="skills-cat-name">AI & MACHINE LEARNING</h3>
+              <span class="skills-cat-icon-tag">// STACK</span>
+            </div>
+            <p class="skills-cat-desc">Core AI engineering, modern LLM orchestration, and dense retrieval systems.</p>
+            <div class="skills-badge-wrap">
+              <span class="skill-outline-badge">Python</span><span class="skill-outline-badge">Machine Learning</span><span class="skill-outline-badge">LLM Applications</span><span class="skill-outline-badge">Retrieval-Augmented Generation (RAG)</span><span class="skill-outline-badge">Hugging Face</span><span class="skill-outline-badge">FAISS</span><span class="skill-outline-badge">Sentence Transformers</span><span class="skill-outline-badge">Mistral AI</span>
+            </div>
+          </div>
+          <div class="skills-cat-panel reveal-on-scroll stagger-2">
+            <div class="skills-cat-header">
+              <h3 class="skills-cat-name">SOFTWARE DEVELOPMENT</h3>
+              <span class="skills-cat-icon-tag">// STACK</span>
+            </div>
+            <p class="skills-cat-desc">Scalable frontend architectures, backend APIs, and cross-platform clients.</p>
+            <div class="skills-badge-wrap">
+              <span class="skill-outline-badge">JavaScript (ES6+)</span><span class="skill-outline-badge">React</span><span class="skill-outline-badge">Python</span><span class="skill-outline-badge">FastAPI</span><span class="skill-outline-badge">Flutter</span><span class="skill-outline-badge">Dart</span><span class="skill-outline-badge">REST APIs</span><span class="skill-outline-badge">HTML5 / Modern CSS</span>
+            </div>
+          </div>
+          <div class="skills-cat-panel reveal-on-scroll stagger-3">
+            <div class="skills-cat-header">
+              <h3 class="skills-cat-name">DATABASES & CLOUD</h3>
+              <span class="skills-cat-icon-tag">// STACK</span>
+            </div>
+            <p class="skills-cat-desc">Structured storage, edge networking, and server deployment.</p>
+            <div class="skills-badge-wrap">
+              <span class="skill-outline-badge">PostgreSQL</span><span class="skill-outline-badge">MongoDB</span><span class="skill-outline-badge">AWS Lightsail</span><span class="skill-outline-badge">Nginx</span><span class="skill-outline-badge">Cloudflare Tunnel</span><span class="skill-outline-badge">WireGuard</span><span class="skill-outline-badge">Linux</span>
+            </div>
+          </div>
+          <div class="skills-cat-panel reveal-on-scroll stagger-4">
+            <div class="skills-cat-header">
+              <h3 class="skills-cat-name">TOOLS & CREATIVE TECH</h3>
+              <span class="skills-cat-icon-tag">// STACK</span>
+            </div>
+            <p class="skills-cat-desc">Product design systems, automation pipelines, and immersive media.</p>
+            <div class="skills-badge-wrap">
+              <span class="skill-outline-badge">Git & GitHub</span><span class="skill-outline-badge">Figma</span><span class="skill-outline-badge">Adobe Photoshop</span><span class="skill-outline-badge">Canva</span><span class="skill-outline-badge">n8n Automation</span><span class="skill-outline-badge">Unity & AR/VR</span><span class="skill-outline-badge">Three.js / WebGL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         07 / CONTACT SECTION: EDITORIAL ACTION GRID
+         ========================================================================== -->
+    <section id="contact" class="section-padding section-border-top">
+      <div class="container">
+        
+        <div class="contact-editorial-layout">
+          <!-- Left Column: Title & Identity -->
+          <div class="contact-headline-col reveal-on-scroll">
+            <div class="section-tag-row">
+              <span class="tag-dot"></span>
+              <span>07 // GET IN TOUCH</span>
+            </div>
+            <h2 class="contact-huge-title">
+              LET'S BUILD<br>
+              <span class="serif-accent">SOMETHING</span><br>
+              MEANINGFUL.
+            </h2>
+            <p class="contact-sub-text">
+              Have an idea, product problem, technical collaboration, or engineering role worth exploring? My inbox and channels are open.
             </p>
 
-            <div class="contact-identity-badge">
-              <div class="identity-name">VARUN VISHWA</div>
-              <div class="identity-title">AI PRODUCT ENGINEER • PRODUCT BUILDER</div>
+            <div class="contact-status-bar">
+              <span class="status-pulse-dot"></span>
+              <span>CURRENT STATUS: OPEN FOR COLLABORATION & ROLES</span>
             </div>
           </div>
 
-          <!-- Interactive Terminal -->
-          <div class="contact-terminal-box">
-            <div class="terminal-header-bar">
-              <div class="terminal-dots">
-                <span class="term-dot red"></span>
-                <span class="term-dot yellow"></span>
-                <span class="term-dot green"></span>
+          <!-- Right Column: Interactive Action Cards -->
+          <div class="contact-actions-grid" id="contact-actions-grid">
+            <a href="mailto:varunvishwa169@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-action-row reveal-on-scroll stagger-1" data-magnetic="true">
+              <div class="action-row-left">
+                <span class="action-row-lbl">START CONVERSATION</span>
+                <span class="action-row-val">varunvishwa169@gmail.com</span>
               </div>
-              <span class="terminal-title">TERMINAL // READY</span>
-            </div>
-
-            <!-- Only LinkedIn, GitHub, Email -->
-            <div id="terminal-links-list" class="terminal-links-list">
-              <a href="https://www.linkedin.com/in/varunvishwa/" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>// LINKEDIN</span>
-                <span>➔</span>
-              </a>
-              <a href="https://github.com/varunvishwa1" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>// GITHUB</span>
-                <span>➔</span>
-              </a>
-              <a href="mailto:contact@varunvishwa.dev" class="terminal-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>// EMAIL</span>
-                <span>➔</span>
-              </a>
-            </div>
+              <span class="action-row-arrow">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="contact-action-row reveal-on-scroll stagger-2" data-magnetic="true">
+              <div class="action-row-left">
+                <span class="action-row-lbl">PROFESSIONAL PROFILE</span>
+                <span class="action-row-val">linkedin.com/in/varunvishwa</span>
+              </div>
+              <span class="action-row-arrow">→</span>
+            </a>
+            <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="contact-action-row reveal-on-scroll stagger-3" data-magnetic="true">
+              <div class="action-row-left">
+                <span class="action-row-lbl">CODE REPOSITORIES</span>
+                <span class="action-row-val">github.com/varunvishwa1</span>
+              </div>
+              <span class="action-row-arrow">→</span>
+            </a>
+            <a href="https://digimartrix.com/" target="_blank" rel="noopener noreferrer" class="contact-action-row reveal-on-scroll stagger-4" data-magnetic="true">
+              <div class="action-row-left">
+                <span class="action-row-lbl">COMPANY WEBSITE</span>
+                <span class="action-row-val">digimartrix.com</span>
+              </div>
+              <span class="action-row-arrow">→</span>
+            </a>
+            <a href="./assets/varun-resume.pdf" download class="contact-action-row reveal-on-scroll stagger-5" data-magnetic="true">
+              <div class="action-row-left">
+                <span class="action-row-lbl">DOWNLOAD RESUME</span>
+                <span class="action-row-val">Download Varun's Resume (PDF)</span>
+              </div>
+              <span class="action-row-arrow">→</span>
+            </a>
           </div>
         </div>
+
       </div>
     </section>
   </main>
 
-  <!-- SITE FOOTER -->
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-main-grid">
-        <div>
-          <div class="footer-brand-title">VARUN VISHWA</div>
-          <div class="footer-brand-sub">AI PRODUCT ENGINEER • PRODUCT BUILDER • CREATIVE TECHNOLOGIST</div>
+      <div class="footer-inner-flex reveal-on-scroll">
+        
+        <div class="footer-brand-side">
+          <div class="footer-author-name">VARUN VISHWA</div>
+          <div class="footer-author-role">AI PRODUCT ENGINEER • CREATIVE TECHNOLOGIST • FOUNDER</div>
         </div>
 
-        <div class="footer-links-row">
-          <a href="#hero" class="footer-link">HOME</a>
-          <a href="#work" class="footer-link">WORK</a>
-          <a href="#skills" class="footer-link">STACK</a>
-          <a href="#archive" class="footer-link">ARCHIVE</a>
-          <a href="https://www.linkedin.com/in/varunvishwa/" target="_blank" rel="noopener noreferrer" class="footer-link">LINKEDIN</a>
-          <a href="https://github.com/varunvishwa1" target="_blank" rel="noopener noreferrer" class="footer-link">GITHUB</a>
+        <div class="footer-links-side">
+          <a href="#hero" class="footer-link-item">HOME</a>
+          <a href="#projects" class="footer-link-item">PROJECTS</a>
+          <a href="#about" class="footer-link-item">ABOUT</a>
+          <a href="#digimatrix" class="footer-link-item">DIGIMATRIX</a>
+          <a href="#process" class="footer-link-item">PROCESS</a>
+          <a href="#experience" class="footer-link-item">EXPERIENCE</a>
+          <a href="#skills" class="footer-link-item">SKILLS</a>
+          <a href="#contact" class="footer-link-item">CONTACT</a>
+          <a href="./assets/varun-resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link-item" title="View Varun's Resume (PDF)">RESUME (PDF) ↗</a>
         </div>
-      </div>
 
-      <div class="footer-bottom-bar">
-        <span>© 2026 VARUN VISHWA. ALL RIGHTS RESERVED.</span>
-        <span style="color: var(--orange-bright);">BUILT WITH CURIOSITY.</span>
+        <div class="footer-copyright">
+          © <span id="current-year-span">2026</span> VARUN VISHWA. DESIGNED & BUILT WITH PRECISION.
+        </div>
+
       </div>
     </div>
   </footer>
 
-  <!-- CASE STUDY MODAL DRAWER -->
-  <div id="case-study-modal" class="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-content-container">
-      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">✕</button>
-      <div id="modal-dynamic-content" class="modal-body">
+  <!-- ==========================================================================
+       CASE STUDY MODAL DRAWER
+       ========================================================================== -->
+  <div id="case-study-modal" class="modal-backdrop-overlay" aria-hidden="true" role="dialog" aria-modal="true" onclick="if(event.target===this) window.closeCaseStudy && window.closeCaseStudy()">
+    <div class="modal-drawer-box">
+      <button id="modal-close-btn" class="modal-close-trigger" aria-label="Close Case Study" onclick="window.closeCaseStudy && window.closeCaseStudy()">✕</button>
+      <div id="modal-body-content" class="modal-body-container">
         <!-- Dynamically injected case study details -->
       </div>
     </div>
   </div>
 
-  <!-- HUD Toast Notification -->
-  <div id="hud-toast" class="hud-toast-notification">
-    <span>◈</span>
-    <span id="toast-text">HUD NOTIFICATION</span>
-  </div>
+  <!-- Standalone Core Interactivity Script (Guarantees Deck & Modal work even offline or before modules) -->
+  <script>
+    (function() {
+      // 1. Deck View vs Grid View Switcher
+      window.switchProjectView = function(mode) {
+        var deckWrap = document.getElementById('projects-deck-wrapper');
+        var gridWrap = document.getElementById('projects-grid');
+        var btnDeck = document.getElementById('toggle-deck-view');
+        var btnGrid = document.getElementById('toggle-grid-view');
 
-  <!-- Engine Script -->
+        if (mode === 'grid') {
+          if (deckWrap) deckWrap.style.display = 'none';
+          if (gridWrap) gridWrap.style.display = 'grid';
+          if (btnDeck) btnDeck.classList.remove('active');
+          if (btnGrid) btnGrid.classList.add('active');
+        } else {
+          if (deckWrap) deckWrap.style.display = 'flex';
+          if (gridWrap) gridWrap.style.display = 'none';
+          if (btnDeck) btnDeck.classList.add('active');
+          if (btnGrid) btnGrid.classList.remove('active');
+        }
+      };
+
+      // 2. 3D Deck Navigation Engine
+      var currentDeckIdx = 0;
+      function updateDeckUI(idx) {
+        var cards = document.querySelectorAll('#projects-deck-stage .deck-card');
+        var dots = document.querySelectorAll('#deck-indicators .deck-indicator-dot');
+        var total = cards.length;
+        if (!total) return;
+        currentDeckIdx = (idx + total) % total;
+
+        cards.forEach(function(card, i) {
+          var diff = (i - currentDeckIdx + total) % total;
+          card.classList.remove('is-active');
+
+          if (diff === 0) {
+            card.classList.add('is-active');
+            card.style.transform = 'translateY(0px) scale(1) translateZ(0px)';
+            card.style.zIndex = '10';
+            card.style.opacity = '1';
+            card.style.filter = 'brightness(1)';
+            card.style.pointerEvents = 'auto';
+          } else if (diff === 1) {
+            card.style.transform = 'translateY(-34px) scale(0.93) translateZ(-40px)';
+            card.style.zIndex = '9';
+            card.style.opacity = '0.88';
+            card.style.filter = 'brightness(0.72)';
+            card.style.pointerEvents = 'auto';
+          } else if (diff === 2) {
+            card.style.transform = 'translateY(-68px) scale(0.86) translateZ(-80px)';
+            card.style.zIndex = '8';
+            card.style.opacity = '0.76';
+            card.style.filter = 'brightness(0.55)';
+            card.style.pointerEvents = 'auto';
+          } else {
+            card.style.transform = 'translateY(-100px) scale(0.78) translateZ(-120px)';
+            card.style.zIndex = '1';
+            card.style.opacity = '0';
+            card.style.filter = 'brightness(0.3)';
+            card.style.pointerEvents = 'none';
+          }
+        });
+
+        dots.forEach(function(dot, dIdx) {
+          if (dIdx === currentDeckIdx) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }
+
+      window.goNextProject = function() {
+        updateDeckUI(currentDeckIdx + 1);
+      };
+      window.goPrevProject = function() {
+        updateDeckUI(currentDeckIdx - 1);
+      };
+      window.goDeckIndex = function(idx) {
+        updateDeckUI(idx);
+      };
+
+      // 3. Case Study Modal Drawer Controller
+      var projectsMap = [{"id":"vsafe","number":"01","title":"Vsafe","badge":"SECURITY / EXTENSION","category":"CHROME EXTENSION","status":"COMPLETED PRODUCT","isConcept":false,"image":"./assets/project-vsafe.jpg","problem":"Users are routinely exposed to deceptive phishing links, suspicious URL redirects, and malicious web domains without instant, transparent safety feedback.","solution":"Engineered a lightweight Chrome browser extension that performs real-time URL inspection, domain reputation analysis, heuristic risk scoring, and instant visual threat warnings.","shortDesc":"A Chrome extension designed to help users identify potentially malicious URLs and phishing links in real-time.","technologies":["JavaScript (ES6+)","Chrome Extension APIs","Cybersecurity Heuristics","URL Analysis","REST APIs","Modern UI"],"highlights":["Real-time tab URL inspection and safety scoring","Visual threat severity indicators (Phishing, Malware, Unverified SSL)","Zero-latency lightweight extension manifest v3 architecture","Clean, dark-mode browser telemetry drawer"],"architecture":"Browser Navigation Event -> URL Domain Parse -> Heuristic Threat Engine -> Score Calculation -> Visual Warning Overlay","github":"https://github.com/varunvishwa1","demo":"https://github.com/varunvishwa1"},{"id":"studymate","number":"02","title":"StudyMate","badge":"AI / EDUCATION","category":"AI PRODUCT","status":"COMPLETED PRODUCT","isConcept":false,"image":"./assets/project-studymate.jpg","problem":"Students experience cognitive overload when navigating lengthy 100+ page academic textbooks and technical papers to find precise answers with contextual sources.","solution":"Engineered a Retrieval-Augmented Generation (RAG) system that ingests multi-page PDFs, chunks semantic blocks, computes dense embeddings, and performs localized vector retrieval with LLM reasoning.","shortDesc":"An AI-powered PDF question-answering system for students to study, query, and understand academic documents efficiently.","technologies":["Python","Streamlit","Mistral LLM","HuggingFace","PyMuPDF","FAISS","Sentence Transformers"],"highlights":["Semantic document chunking with PyMuPDF","High-performance local vector similarity indexing using FAISS","Context-grounded answering powered by Mistral and HuggingFace","Interactive Streamlit interface with instant source citation"],"architecture":"PDF Ingestion -> PyMuPDF Text Chunker -> Sentence Transformers Embeddings -> FAISS Vector DB -> Similarity Search -> Mistral LLM Synthesis -> Source-Cited Answer","github":"https://github.com/varunvishwa1","demo":"https://github.com/varunvishwa1"},{"id":"vedcrop","number":"03","title":"VedCrop","badge":"AGRITECH / EDGE AI","category":"MOBILE AI APPLICATION","status":"COMPLETED PRODUCT","isConcept":false,"image":"./assets/project-vedcrop.jpg","problem":"Farmers in remote agricultural zones frequently lack reliable internet connectivity, expert agronomists, and multilingual technical tools when dealing with sudden crop disease outbreaks.","solution":"Designed an edge-optimized computer vision and multimodal diagnosis pipeline that identifies plant pathologies from photos and provides actionable remedies in regional languages with offline-first support.","shortDesc":"An AI-powered crop disease detection application, designed around offline usage and multilingual farmer accessibility.","technologies":["Python","Computer Vision","TensorFlow Lite","Multilingual NLP","FastAPI","Edge Computing"],"highlights":["Offline-first edge model inference architecture","Multilingual UI and acoustic feedback for regional accessibility","Pathogen severity mapping and localized treatment recommendations","Low-latency response on constrained mobile hardware"],"architecture":"Camera Input -> Edge Preprocessing -> Lightweight CNN Classifier -> Disease Knowledge Base -> Multilingual Local Output","github":"https://github.com/varunvishwa1","demo":"https://github.com/varunvishwa1"},{"id":"focusmate","number":"04","title":"FocusMate Study Copilot","badge":"PRODUCTIVITY CONCEPT","category":"BROWSER EXTENSION CONCEPT","status":"PRODUCT CONCEPT","isConcept":true,"image":"./assets/project-focusmate.jpg","problem":"Modern students and developers encounter constant digital fragmentation, lacking structured focus blocks, task clarity, and intelligent scheduling tailored to academic workloads.","solution":"Architected a minimalist dark-mode productivity extension concept featuring adaptive pomodoro session timers, distraction site-blocking, task priority trees, and weekly focus metrics.","shortDesc":"A productivity extension concept for structured study planning, distraction management, and focus tracking.","technologies":["JavaScript (ES6+)","Browser Storage APIs","UI/UX Design","Productivity Analytics","CSS Architecture"],"highlights":["Structured interval study blocks with custom audio cues","Task prioritization dashboard with progress breakdown","Distraction shield with configurable tab limiter","Clean, dark editorial telemetry layout"],"architecture":"Session Engine -> Local Storage State -> Active Tab Monitor -> Distraction Interceptor -> Analytics Aggregator","github":"https://github.com/varunvishwa1","demo":"https://github.com/varunvishwa1"},{"id":"mithrai-digimatrix","number":"05","title":"Mithrai / Digimatrix","badge":"3D / SPATIAL TECH","category":"IMMERSIVE WEB PLATFORM","status":"COMPLETED PRODUCT","isConcept":false,"image":"./assets/project-mithrai.jpg","problem":"Traditional 2D digital interfaces lack spatial depth and tactile immersion for showcasing futuristic product designs, digital prototypes, and interactive exhibits.","solution":"Developed interactive 3D web viewports and augmented reality anchors that let users inspect digital artifacts in real-time space with spatial lighting and responsive shaders.","shortDesc":"A 3D and augmented-reality experience platform exploring interactive digital spatial computing.","technologies":["Three.js","WebXR","WebGL","GLTF Pipelines","Interactive Shaders","JavaScript"],"highlights":["Real-time 60fps 3D asset rendering directly in the browser","Spatial AR model placement using WebXR standards","Dynamic lighting and custom metallic/glass reflections","Smooth gesture and camera orbit interaction"],"architecture":"3D Asset Compression -> WebGL Scene Engine -> WebXR Session Manager -> Shader Pipeline -> Interactive Canvas","github":"https://github.com/varunvishwa1","demo":"https://digimartrix.com/"},{"id":"campus-freelance-hub","number":"06","title":"Campus Freelance Hub","badge":"MARKETPLACE CONCEPT","category":"STUDENT PLATFORM CONCEPT","status":"PRODUCT CONCEPT","isConcept":true,"image":"./assets/project-freelance.jpg","problem":"Student freelancers struggle to build credible track records and find fair opportunities, while peers and campus clubs need verified, affordable talent.","solution":"Architected a closed-loop campus talent marketplace featuring institutional domain verification, portfolio skill validation, milestone escrow logic, and direct project matchmaking.","shortDesc":"A student-focused freelancing platform concept designed around verified student users and peer project collaboration.","technologies":["React","Node.js","PostgreSQL","JWT Authentication","REST APIs","Modern UI"],"highlights":["Verified campus student authentication gateway","Milestone-based project submission and review workflow","Direct peer-to-peer collaboration and skill tags","Clean, distraction-free product interface"],"architecture":"Student Auth -> Profile Store -> Matching Engine -> Milestone Escrow -> Project Review Pipeline","github":"https://github.com/varunvishwa1","demo":"https://github.com/varunvishwa1"}];
+      window.openCaseStudy = function(projectId) {
+        var overlay = document.getElementById('case-study-modal');
+        var content = document.getElementById('modal-body-content');
+        if (!overlay || !content) return;
+        var p = projectsMap.find(function(item) { return item.id === projectId; });
+        if (!p) return;
+
+        content.innerHTML = '<div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-crimson); letter-spacing: 0.12em; text-transform: uppercase;">' +
+          p.number + ' // ' + p.badge + '</div>' +
+          '<h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text-primary); text-transform: uppercase; line-height: 1.1; margin-top: 0.4rem;">' +
+          p.title + '</h2>' +
+          '<div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-orange); text-transform: uppercase; margin-top: 0.25rem;">STATUS: ' + p.status + '</div>' +
+          '<div style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; margin-top: 1.25rem; border: 1px solid var(--border-subtle);">' +
+          '<img src="' + p.image + '" alt="' + p.title + '" style="width: 100%; height: 100%; object-fit: cover;"></div>' +
+          '<div style="margin-top: 1.5rem;"><h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-crimson); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem;">01 // THE PROBLEM</h4>' +
+          '<p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">' + p.problem + '</p></div>' +
+          '<div style="margin-top: 1.25rem;"><h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-crimson); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem;">02 // THE SOLUTION & ARCHITECTURE</h4>' +
+          '<p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">' + p.solution + '</p>' +
+          '<div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-primary); line-height: 1.6; word-break: break-word; margin-top: 0.6rem; padding: 0.75rem; background: rgba(255,255,255,0.03); border-left: 2px solid var(--accent-orange);">' + p.architecture + '</div></div>' +
+          '<div style="margin-top: 1.25rem;"><h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-crimson); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem;">KEY ENGINEERING HIGHLIGHTS</h4>' +
+          '<ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">' +
+          p.highlights.map(function(h) { return '<li style="font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 0.6rem;"><span style="color: var(--accent-crimson); font-family: var(--font-mono); font-size: 0.8rem;">▪</span><span>' + h + '</span></li>'; }).join('') +
+          '</ul></div>' +
+          '<div style="margin-top: 1.5rem;"><h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-crimson); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem;">TECHNOLOGY STACK</h4>' +
+          '<div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">' +
+          p.technologies.map(function(t) { return '<span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-primary); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); padding: 0.25rem 0.6rem;">' + t + '</span>'; }).join('') +
+          '</div></div>' +
+          '<div style="display: flex; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); flex-wrap: wrap;">' +
+          '<a href="' + p.github + '" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-crimson); color: #fff; padding: 0.75rem 1.4rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; font-weight: 600;"><span>VIEW REPOSITORY</span><span>→</span></a>' +
+          '<a href="' + p.demo + '" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 0.75rem 1.4rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase;"><span>PROJECT DEMO</span></a>' +
+          '</div>';
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeCaseStudy = function() {
+        var overlay = document.getElementById('case-study-modal');
+        if (overlay) {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      };
+
+      window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          window.closeCaseStudy();
+        }
+      });
+    })();
+  </script>
+
+  <!-- Entry Script -->
   <script type="module" src="./js/main.js"></script>
 </body>
 </html>
